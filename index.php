@@ -4,8 +4,8 @@ include_once 'app/modules/hg-api.php';
 
 $hg = new HG_API(HG_API_KEY);
 
-$dolar = $hg->dolar_quotation();
-
+$dolar = $hg->coin_quotation("ARS");
+var_dump($dolar);
 if($hg->is_error() ===false){
     $variation = $dolar['variation'] <0 ? 'danger' : 'info';
 

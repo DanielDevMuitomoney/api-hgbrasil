@@ -31,11 +31,11 @@ class HG_API{
         return $this->error;
     }
 
-    public function dolar_quotation(){
+    public function coin_quotation($coin){
         $data = $this->request('finance/quotations');
-        if(!empty($data) && is_array($data['results']['currencies']['USD'])){
+        if(!empty($data) && is_array($data['results']['currencies'][$coin])){
             $this->error = false;
-            return $data['results']['currencies']['USD'];
+            return $data['results']['currencies'][$coin];
         }else{
             $this->error = true;
             return false;
